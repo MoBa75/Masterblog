@@ -1,4 +1,4 @@
-/* Allgemeines Layout */
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #eef2f7;
@@ -18,7 +18,6 @@ body {
     border: 1px solid #ccc;
 }
 
-/* Überschriften */
 h1 {
     text-align: center;
     margin-bottom: 40px;
@@ -58,7 +57,6 @@ h2 {
     font-size: 1em;
 }
 
-/* Links und Buttons */
 a {
     color: #0081b9;
     text-decoration: none;
@@ -90,7 +88,6 @@ a:hover {
     transform: scale(1.05);
 }
 
-/* Formular für neue Blog-Posts */
 .blog-form {
     display: flex;
     flex-direction: column;
