@@ -1,3 +1,4 @@
+/* Allgemeines Layout */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #eef2f7;
@@ -13,20 +14,28 @@ body {
     padding: 30px;
     background-color: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border: 1px solid #ccc;
 }
 
+/* Überschriften */
 h1 {
     text-align: center;
     margin-bottom: 40px;
     color: #004C6D;
 }
 
+h2 {
+    margin-top: 0;
+    color: #005c88;
+}
+
+/* Blog-Post-Karten */
 .post {
     background: linear-gradient(to top left, #ffffff, #f8f9fa);
-    margin-bottom: 30px;
+    margin: 30px auto;
     padding: 20px;
+    max-width: 950px;
     border-radius: 12px;
     border: 1px solid #ddd;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
@@ -36,11 +45,6 @@ h1 {
 .post:hover {
     transform: translateY(-4px);
     box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-.post h2 {
-    margin-top: 0;
-    color: #005c88;
 }
 
 .meta {
@@ -54,6 +58,7 @@ h1 {
     font-size: 1em;
 }
 
+/* Links und Buttons */
 a {
     color: #0081b9;
     text-decoration: none;
@@ -64,19 +69,72 @@ a:hover {
     text-decoration: underline;
 }
 
+.button-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
 .new-post-button {
     display: inline-block;
-    margin-top: 30px;
     padding: 12px 24px;
     background-color: #0081b9;
     color: white;
     text-decoration: none;
     border-radius: 8px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .new-post-button:hover {
     background-color: #004C6D;
     transform: scale(1.05);
+}
+
+/* Formular für neue Blog-Posts */
+.blog-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blog-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.blog-form input,
+.blog-form textarea {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: inset 1px 1px 4px rgba(0,0,0,0.05);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.blog-form textarea {
+    resize: vertical;
+}
+
+.blog-form button {
+    align-self: flex-start;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #0081b9;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.blog-form button:hover {
+    background-color: #004C6D;
+    transform: translateY(-1px);
 }
