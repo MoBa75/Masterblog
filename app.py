@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from app.json_store import get_data, save_data
+from app.json_storage import get_data, save_data
 from app.app_operation import create_new_id
 
 

@@ -1,4 +1,4 @@
-from app.json_store import get_data
+from app.json_storage import get_data
 
 def create_new_id():
     posts = get_data()
