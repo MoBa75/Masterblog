@@ -1,0 +1,82 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef2f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 1px solid #ccc;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #004C6D;
+}
+
+.post {
+    background: linear-gradient(to top left, #ffffff, #f8f9fa);
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post:hover {
+    transform: translateY(-4px);
+    box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.post h2 {
+    margin-top: 0;
+    color: #005c88;
+}
+
+.meta {
+    font-size: 0.85em;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.preview {
+    line-height: 1.6;
+    font-size: 1em;
+}
+
+a {
+    color: #0081b9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.new-post-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 24px;
+    background-color: #0081b9;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.new-post-button:hover {
+    background-color: #004C6D;
+    transform: scale(1.05);
+}
