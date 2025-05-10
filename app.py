@@ -30,6 +30,16 @@ def add():
     return render_template('add.html')
 
 
+@app.route("/posts/<int:post_id>")
+def post_details(post_id):
+    posts = get_data()
+    for post in posts:
+        if post["id"] == post_id:
+            return render_template("post.html", post=post)
+
+    return "Post not found", 404
+
+
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=5000, debug=True)
 
