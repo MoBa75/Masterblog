@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete: {{ post.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="post-detail">
+        <h1>{{ post.title }}</h1>
+        <p class="meta">Post Nr.: {{ post.id }} – Written by <strong>{{ post.author }}</strong></p>
+        <div class="content">
+            <p>{{ post.content }}</p>
+        </div>
+    </div>
+
+    <div class="post-detail" style="text-align: center;">
+        <p><strong>Do you really want to delete this post?</strong></p>
+
+        <form method="post" class="button-container">
+            <input type="hidden" name="post_id" value="{{ post.id }}">
+            <div class="button-container">
+                <a class="new-post-button" href="/">Back to Blog</a>
+            </div>
+            <button type="submit" class="new-post-button danger">Delete Post</button>
+        </form>
+    </div>
+</body>
+</html>

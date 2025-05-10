@@ -67,6 +67,29 @@ a:hover {
     text-decoration: underline;
 }
 
+.action-button-container {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.update-button, .delete-button {
+    display: inline-block;
+    color: white;
+    padding: 4px 12px;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.update-button {
+    background-color: #3cb371;
+}
+
+.delete-button {
+    background-color: #0081b9;
+}
+
 .button-container {
     text-align: center;
     margin-top: 40px;
@@ -164,4 +187,31 @@ a:hover {
     font-size: 1.05em;
     line-height: 1.6;
     color: #333;
+}
+
+/* Zusätzlicher Stil für die Lösch-Abfrage */
+
+.post-detail p strong {
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Zusätzlicher roter Button für "Delete Post" */
+.new-post-button.danger,
+button.new-post-button.danger {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.new-post-button.danger:hover,
+button.new-post-button.danger:hover {
+    background-color: #c9302c;
+    transform: scale(1.05);
 }

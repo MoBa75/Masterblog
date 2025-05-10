@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from app.json_storage import get_data, save_data
+from app.json_storage import get_data, create_data, delete_data, update_data
 from app.app_operation import create_new_id
 
 
@@ -25,7 +25,7 @@ def add():
                     "title": title,
                     "content": content
                     }
-        save_data(new_post)
+        create_data(new_post)
         return redirect(url_for('index'))
     return render_template('add.html')
 
@@ -36,10 +36,47 @@ def post_details(post_id):
     for post in posts:
         if post["id"] == post_id:
             return render_template("post.html", post=post)
+    return "Post not found", 404
 
+
+
+@app.route('/delete/<int:post_id>', methods=['GET', 'DELETE', 'POST'])
+def delete(post_id):
+    posts = get_data()
+    if request.method in ['POST', 'DELETE']:
+        for post_index, post in enumerate(posts):
+            if post["id"] == post_id:
+                delete_data(post_index)
+                return redirect(url_for('index'))
+        return "Post not found", 404
+    for post in posts:
+        if post["id"] == post_id:
+            return render_template("delete.html", post=post)
+    return "Post not found", 404
+
+
+@app.route('/update/<int:post_id>', methods=['GET', 'PUT', 'POST'])
+def update(post_id):
+    posts = get_data()
+    if request.method in ['POST', 'PUP']:
+        author = request.form.get("author")
+        title = request.form.get("title")
+        content = request.form.get("content")
+        if not author or not title or not content:
+            return "Author, title and content needed!"
+        updated_post = {"id": post_id,
+                    "author": author,
+                    "title": title,
+                    "content": content
+                    }
+        update_data(updated_post)
+        return redirect(url_for('index'))
+    for post in posts:
+        if post["id"] == post_id:
+            return render_template("update.html", post=post)
     return "Post not found", 404
 
 
 if __name__ == '__main__':
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    app.run(host="127.0.0.1", port=5010, debug=True)
 

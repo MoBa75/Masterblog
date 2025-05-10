@@ -7,14 +7,20 @@
     },
     {
         "id": 2,
-        "author": "Jane Doe",
+        "author": "Jane Doe - Ringelding",
         "title": "Second Post",
-        "content": "This is another post."
+        "content": "This is another post. SO, ein neuer Versuch hier etwas zu schreiben. "
     },
     {
         "id": 3,
-        "author": "Mo",
-        "title": "Hamburger Jung ",
-        "content": "Es war ein mal... "
+        "author": "FlugDino aus Hamburg",
+        "title": "Relativ simpel ",
+        "content": "Ich sehe auch alles so wie du. Nur anders. Manchmal h\u00f6rt man mehr als man schmeckt. "
+    },
+    {
+        "id": 4,
+        "author": "Artur von der Brug",
+        "title": "oh Alter, warum haben Hasen lange Ohren und sowieso",
+        "content": "Hier also ein ganz langer Text, der meinem Kumpel viel Zeit um f\u00fcr sein kleines Hobby nebenbei ben\u00f6tigt. Mal schauen ob das jetzt soweit reicht. "
     }
 ]
