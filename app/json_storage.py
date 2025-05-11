@@ -66,4 +66,3 @@ def update_data(updated_post):
         if post['id'] == updated_post['id']:
             posts[index] = updated_post
             save_data(posts)
-

@@ -29,7 +29,6 @@ h2 {
     color: #005c88;
 }
 
-/* Blog-Post-Karten */
 .post {
     background: linear-gradient(to top left, #ffffff, #f8f9fa);
     margin: 30px auto;
@@ -63,10 +62,6 @@ a {
     font-weight: bold;
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
 .action-button-container {
     text-align: right;
     margin-top: 5px;
@@ -87,7 +82,7 @@ a:hover {
 }
 
 .delete-button {
-    background-color: #0081b9;
+    background-color: #d9534f;
 }
 
 .button-container {
@@ -95,18 +90,20 @@ a:hover {
     margin-top: 40px;
 }
 
-.new-post-button {
+.center-button {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 10px 24px 14px 24px;
     background-color: #0081b9;
     color: white;
     text-decoration: none;
     border-radius: 8px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     transition: background-color 0.2s ease, transform 0.2s ease;
+    width: 9rem;
+    height: 1rem;
 }
 
-.new-post-button:hover {
+.center-button:hover {
     background-color: #004C6D;
     transform: scale(1.05);
 }
@@ -159,7 +156,6 @@ a:hover {
     transform: translateY(-1px);
 }
 
-/* Einzelne Blog-Ansicht (post.html) */
 .post-detail {
     background: linear-gradient(to top left, #ffffff, #f8f9fa);
     margin: 50px auto;
@@ -189,29 +185,27 @@ a:hover {
     color: #333;
 }
 
-/* Zusätzlicher Stil für die Lösch-Abfrage */
-
 .post-detail p strong {
     font-size: 1.1em;
     color: #333;
 }
 
-/* Zusätzlicher roter Button für "Delete Post" */
-.new-post-button.danger,
-button.new-post-button.danger {
+.delete-button.danger {
     background-color: #d9534f;
     color: white;
     border: none;
-    padding: 12px 24px;
     border-radius: 8px;
     font-weight: bold;
+    font-size: 1.05em;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     transition: background-color 0.2s ease, transform 0.2s ease;
     cursor: pointer;
+    width: 12rem;
+    height: 2.5rem;
+    margin-top: 4px;
 }
 
-.new-post-button.danger:hover,
-button.new-post-button.danger:hover {
+.delete-button.danger:hover {
     background-color: #c9302c;
     transform: scale(1.05);
 }

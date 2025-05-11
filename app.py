@@ -39,7 +39,6 @@ def post_details(post_id):
     return "Post not found", 404
 
 
-
 @app.route('/delete/<int:post_id>', methods=['GET', 'DELETE', 'POST'])
 def delete(post_id):
     posts = get_data()
@@ -65,10 +64,10 @@ def update(post_id):
         if not author or not title or not content:
             return "Author, title and content needed!"
         updated_post = {"id": post_id,
-                    "author": author,
-                    "title": title,
-                    "content": content
-                    }
+                        "author": author,
+                        "title": title,
+                        "content": content
+                        }
         update_data(updated_post)
         return redirect(url_for('index'))
     for post in posts:
@@ -79,4 +78,3 @@ def update(post_id):
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=5010, debug=True)
-
