@@ -3,6 +3,11 @@ from json import JSONDecodeError
 
 
 def get_data():
+    """
+    Reads the saved blog entries from a JSON file and returns the content.
+    If the storage file is empty, a new list is created to store the blogs.
+    :return: Existing blog entries as a list or empty list.
+    """
     try:
         with open('data/data.json', 'r', encoding='utf-8') as file:
             return json.loads(file.read())
@@ -13,6 +18,10 @@ def get_data():
 
 
 def save_data(posts):
+    """
+    Saves blog entries to the JSON storage file.
+    :param posts: Entire blog entries as a list of dictionaries.
+    """
     if not posts or not isinstance(posts, list):
         raise TypeError("Error: Save element needs to be list!")
     # ensuring date format is valid
@@ -29,6 +38,11 @@ def save_data(posts):
 
 
 def create_data(new_post):
+    """
+    Adds a new blog entry to the existing list
+    of blog entries and submits it for saving.
+    :param new_post:New blog entry as dictionary
+    """
     if not new_post or not isinstance(new_post, dict):
         raise TypeError("Error: Save element needs to be dictionary!")
     if not len(new_post) == 4:
@@ -42,6 +56,10 @@ def create_data(new_post):
 
 
 def delete_data(post_index):
+    """
+    Deletes the selected blog entry from the list of all entries.
+    :param post_index: Index of the entry to be deleted as integer.
+    """
     if not isinstance(post_index, int):
         raise TypeError("Error: Delete index needs to be integer!")
     if post_index <= 0:
@@ -54,6 +72,11 @@ def delete_data(post_index):
 
 
 def update_data(updated_post):
+    """
+     Replaces a blog post with the modified
+     blog entry and forwards it for saving.
+    :param updated_post: Revised blog post as dictionary
+    """
     if not updated_post or not isinstance(updated_post, dict):
         raise TypeError("Error: Update element needs to be dictionary!")
     if not len(updated_post) == 4:

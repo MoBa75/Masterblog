@@ -12,15 +12,15 @@
         "content": "This is another post. SO, ein neuer Versuch hier etwas zu schreiben. "
     },
     {
-        "id": 3,
-        "author": "FlugDino aus Hamburg",
-        "title": "Relativ simpel ",
-        "content": "Ich sehe auch alles so wie du. Nur anders. Manchmal h\u00f6rt man mehr als man schmeckt. "
-    },
-    {
         "id": 4,
         "author": "Artur von der Brug",
         "title": "oh Alter, warum haben Hasen lange Ohren und sowieso bbbbbbbbbbb",
         "content": "vk\u00f6aksd\u00f6fjee"
+    },
+    {
+        "id": 3,
+        "author": "Dino",
+        "title": "Fliegen",
+        "content": "kjas\u00f6kdfjwoejfndas"
     }
 ]
