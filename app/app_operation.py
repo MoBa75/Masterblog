@@ -1,4 +1,4 @@
-from app.json_storage import get_data
+from app.json_storage import get_posts
 
 
 def create_new_id():
@@ -7,8 +7,19 @@ def create_new_id():
     fills in missing ID numbers.
     :return: A unique ID numer as integer.
     """
-    posts = get_data()
+    posts = get_posts()
     id_lst = [int(post["id"]) for post in posts if "id" in post
               and str(post.get("id", "")).isdigit()]
     new_id = next(num for num in range(1, len(posts)+2) if num not in id_lst)
     return new_id
+
+
+def post_validation(post):
+    if not post or not isinstance(post, dict):
+        raise TypeError("Error: Update element needs to be dictionary!")
+    if not len(post) == 4:
+        raise KeyError("Error: 'id', 'author', 'title', 'content' need to exist!")
+    for key in post:
+        if key not in ['id', 'author', 'title', 'content']:
+            raise KeyError(f"Error: Wrong key '{key}'!")
+    return post

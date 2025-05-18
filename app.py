@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from app.json_storage import get_data, create_data, delete_data, update_data
+from app.json_storage import get_posts, save_post, delete_post, update_post
 from app.app_operation import create_new_id
 
 
@@ -12,7 +12,7 @@ def index():
     Calls the index HTML page and lists the saved
     blog entries with a preview of the entries
     """
-    posts = get_data()
+    posts = get_posts()
     return render_template("index.html", posts=posts)
 
 
@@ -33,7 +33,7 @@ def add():
                     "title": title,
                     "content": content
                     }
-        create_data(new_post)
+        save_post(new_post)
         return redirect(url_for('index'))
     return render_template('add.html')
 
@@ -44,7 +44,7 @@ def post_details(post_id):
     Calls up the HTML page for the selected
     blog entry and displays the entire entry.
     """
-    posts = get_data()
+    posts = get_posts()
     for post in posts:
         if post["id"] == post_id:
             return render_template("post.html", post=post)
@@ -57,11 +57,11 @@ def delete(post_id):
     Calls up an HTML page with the selected blog post for deletion.
     Allows blog post deletion and then returns to the main page (index).
     """
-    posts = get_data()
+    posts = get_posts()
     if request.method in ['POST', 'DELETE']:
         for post_index, post in enumerate(posts):
             if post["id"] == post_id:
-                delete_data(post_index)
+                delete_post(post_index)
                 return redirect(url_for('index'))
         return "Post not found", 404
     for post in posts:
@@ -77,7 +77,7 @@ def update(post_id):
     gives the user the option of updating the entries. Replaces the blog entry with
     the user input and forwards it for saving.
     """
-    posts = get_data()
+    posts = get_posts()
     if request.method in ['POST', 'PUP']:
         author = request.form.get("author")
         title = request.form.get("title")
@@ -89,7 +89,7 @@ def update(post_id):
                         "title": title,
                         "content": content
                         }
-        update_data(updated_post)
+        update_post(updated_post)
         return redirect(url_for('index'))
     for post in posts:
         if post["id"] == post_id:
@@ -97,5 +97,10 @@ def update(post_id):
     return "Post not found", 404
 
 
+"""@app.errorhandler(404)
+def not_found_error(error):
+    return jsonify({"error": "Not Found"}), 404"""
+
+
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="127.0.0.1", port=5002, debug=True)
