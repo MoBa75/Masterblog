@@ -6,7 +6,7 @@ def create_new_id(posts):
     """
     id_lst = [int(post["id"]) for post in posts if "id" in post
               and str(post.get("id", "")).isdigit()]
-    new_id = next(num for num in range(1, len(posts)+2) if num not in id_lst)
+    new_id = next(num for num in range(1, len(posts) + 2) if num not in id_lst)
     return new_id
 
 

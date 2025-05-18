@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for, abort
 from app.json_storage import get_posts, save_post, delete_post, update_post
 from app.app_operation import create_new_id
 
-
 app = Flask(__name__)
 
 
