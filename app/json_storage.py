@@ -1,6 +1,6 @@
 import json
 from json import JSONDecodeError
-from app_operation import post_validation
+from app.app_operation import post_validation
 
 
 def get_posts():
@@ -11,7 +11,7 @@ def get_posts():
     """
     try:
         with open('data/data.json', 'r', encoding='utf-8') as file:
-            return json.loads(file.read())
+            return json.load(file)
     except (FileNotFoundError, JSONDecodeError):
         with open('data/data.json', 'w') as file:
             file.write('[]')
@@ -32,7 +32,7 @@ def save_data(posts):
         except (TypeError, KeyError) as error:
             return {'error': error}
     with open('data/data.json', 'w') as file:
-        file.write(json.dumps(posts, indent=4))
+        json.dump(posts, file, indent=4)
 
 
 def save_post(new_post):

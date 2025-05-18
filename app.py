@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, abort
 from app.json_storage import get_posts, save_post, delete_post, update_post
 from app.app_operation import create_new_id
 
@@ -27,8 +27,9 @@ def add():
         title = request.form.get("title")
         content = request.form.get("content")
         if not author or not title or not content:
-            return "Author, title and content needed!"
-        new_post = {"id": create_new_id(),
+            abort(404, description="Author, title and content needed!")
+        posts = get_posts()
+        new_post = {"id": create_new_id(posts),
                     "author": author,
                     "title": title,
                     "content": content
@@ -48,7 +49,7 @@ def post_details(post_id):
     for post in posts:
         if post["id"] == post_id:
             return render_template("post.html", post=post)
-    return "Post not found", 404
+    abort(404, description=f'Post with ID {post_id} not found.')
 
 
 @app.route('/delete/<int:post_id>', methods=['GET', 'DELETE', 'POST'])
@@ -63,11 +64,11 @@ def delete(post_id):
             if post["id"] == post_id:
                 delete_post(post_index)
                 return redirect(url_for('index'))
-        return "Post not found", 404
+        abort(404, description=f'Post with ID {post_id} not found.')
     for post in posts:
         if post["id"] == post_id:
             return render_template("delete.html", post=post)
-    return "Post not found", 404
+    abort(404, description=f'Post with ID {post_id} not found.')
 
 
 @app.route('/update/<int:post_id>', methods=['GET', 'PUT', 'POST'])
@@ -83,7 +84,7 @@ def update(post_id):
         title = request.form.get("title")
         content = request.form.get("content")
         if not author or not title or not content:
-            return "Author, title and content needed!"
+            abort(404, description="Author, title and content needed!")
         updated_post = {"id": post_id,
                         "author": author,
                         "title": title,
@@ -94,12 +95,12 @@ def update(post_id):
     for post in posts:
         if post["id"] == post_id:
             return render_template("update.html", post=post)
-    return "Post not found", 404
+    abort(404, description=f'Post with ID {post_id} not found.')
 
 
-"""@app.errorhandler(404)
+@app.errorhandler(404)
 def not_found_error(error):
-    return jsonify({"error": "Not Found"}), 404"""
+    return render_template('404.html', error=error), 404
 
 
 if __name__ == '__main__':
